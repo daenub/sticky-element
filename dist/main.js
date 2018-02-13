@@ -7,9 +7,9 @@ exports.StickyElement = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _throttle = require('lodash/throttle');
+var _throttle2 = require('lodash/throttle');
 
-var _throttle2 = _interopRequireDefault(_throttle);
+var _throttle3 = _interopRequireDefault(_throttle2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,7 +33,7 @@ var StickyElement = exports.StickyElement = function () {
     value: function addListener() {
       var _this = this;
 
-      document.addEventListener('scroll', (0, _throttle2.default)(function () {
+      document.addEventListener('scroll', (0, _throttle3.default)(function () {
         if (window.pageYOffset >= _this.rectangle.top) {
           _this.enableSticky();
         } else {
@@ -41,7 +41,7 @@ var StickyElement = exports.StickyElement = function () {
         }
       }, 60));
 
-      window.addEventListener('resize', (0, _throttle2.default)(function () {
+      window.addEventListener('resize', (0, _throttle3.default)(function () {
         if (_this.isSticky) {
           var containerRect = _this.getRectangle(_this.container);
           var elRect = _this.getRectangle();

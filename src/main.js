@@ -1,4 +1,4 @@
-import _debounce from 'lodash/throttle'
+import _throttle from 'lodash/throttle'
 
 export class StickyElement {
   constructor(el) {
@@ -14,7 +14,7 @@ export class StickyElement {
   addListener() {
     document.addEventListener(
       'scroll',
-      _debounce(() => {
+      _throttle(() => {
         if (window.pageYOffset >= this.rectangle.top) {
           this.enableSticky()
         } else {
@@ -25,7 +25,7 @@ export class StickyElement {
 
     window.addEventListener(
       'resize',
-      _debounce(() => {
+      _throttle(() => {
         if (this.isSticky) {
           let containerRect = this.getRectangle(this.container)
           let elRect = this.getRectangle()
